@@ -41,8 +41,27 @@
                 font-size: 3.5rem;
             }
         }
+
+        .divImage {
+            
+            width: 300px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .linkImage {
+            /*position: absolute;*/
+            height: 300px;
+            width: auto;
+            max-width: none;
+            margin: auto;
+            overflow: hidden;
+            margin-left: -100%;
+            margin-right: -100%;
+        }
     </style>
     <!-- Custom styles for this template -->
+
 </head>
 
 <body>
@@ -56,7 +75,7 @@
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav ml-auto">
                     <a class="nav-item nav-link" href="http://www.instagram.com/amin.bw/">Instagram</a>
-                    <a class="nav-item nav-link" href="{% static 'resume.pdf' %}" >Resume</a>
+                    <a class="nav-item nav-link" href="{% static 'resume.pdf' %}">Resume</a>
                     <a class="nav-item nav-link" href="{% url 'allblogs' %}">Blog</a>
                 </div>
             </div>
@@ -65,31 +84,35 @@
 
     <main role="main">
 
-        <section class="jumbotron text-center">
+        <section class="jumbotron text-center p-3">
             <div class="container">
                 <h1>Hi, I'm Amin.</h1>
-                <p class="lead text-muted">Hey, my name is Amin Naghavi and I love to make Django website it's the thrill of handling the request that the people want. </p>
+                <p class="lead text-muted">Hey, my name is Amin Naghavi and I love to make Django website it's the
+                    thrill of handling the request that the people want. </p>
                 <p>
-                    <img class="image-orientation: from-image;" src="{% static 'picture.jpg' %}" height="200"/>
+                    <img class="rounded-circle" alt="Cinque Terre" src="{% static 'picture.jpg' %}" height="200" />
                 </p>
                 <p>
-                    <a href="mailto: amin.bw95@gmail.com" class="btn btn-primary my-2">Email Me</a>
+                    <a href="{% url 'allblogs' %}" class="btn btn-primary my-2"
+                        style="background-color: chocolate; border-color: chocolate;">My Blog</a>
+                    <a href="mailto: amin.bw95@gmail.com" class="btn btn-primary my-2">Email</a>
                 </p>
             </div>
         </section>
-
-        <div class="album py-5 bg-light">
+        <div class="album py-3 bg-light">
             <div class="container">
                 <div class="row">
                     {% for job in jobs.all%}
-                    <div class="col-md-4" height=100%>
-                        <div class="card mb-4 shadow-sm">
-                            <a href="{{job.image.url}}">
-                                <img class="card-img-top" src={{job.image.url}}/>
+                    <div class="col-lg-4 d-flex align-items-stretch" style="max-width:none;" align="center">
+                        <div class="card mb-4 shadow-sm " style="max-width:none; overflow: hidden;">
+                            <a href="{{job.image.url}}" class="divImage">
+                                <img class="card-img-top linkImage" src={{job.image.url}} />
                             </a>
-                            <div class="card-body">
-                                <p class="card-text">{{job.summary}}</p>
+
+                            <div class="p-2" style="text-align: center; margin-top: auto;">
+                                {{job.summary}}
                             </div>
+
                         </div>
                     </div>
                     {% endfor %}
@@ -104,9 +127,15 @@
             <p>CopyRight Amin Naghavi {%now "Y"%}</p>
         </div>
     </footer>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+        integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
