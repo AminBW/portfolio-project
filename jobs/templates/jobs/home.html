@@ -87,8 +87,7 @@
         <section class="jumbotron text-center p-3">
             <div class="container">
                 <h1>Hi, I'm Amin.</h1>
-                <p class="lead text-muted">Hey, my name is Amin Naghavi and I love to make Django website it's the
-                    thrill of handling the request that the people want. </p>
+                <p class="lead text-muted">All photos are mine. I am interested in programming, photography, mountineering, cycling, swimmimg, etc. </p>
                 <p>
                     <img class="rounded-circle" alt="Cinque Terre" src="{% static 'picture.jpg' %}" height="200" />
                 </p>
@@ -105,7 +104,7 @@
                     {% for job in jobs.all%}
                     <div class="col-lg-4 d-flex align-items-stretch" style="max-width:none;" align="center">
                         <div class="card mb-4 shadow-sm " style="max-width:none; overflow: hidden;">
-                            <a href="{{job.image.url}}" class="divImage">
+                            <a href="{% url 'jobdetail' job.id %}" class="divImage">
                                 <img class="card-img-top linkImage" src={{job.image.url}} />
                             </a>
 
