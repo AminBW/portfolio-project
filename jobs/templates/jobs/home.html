@@ -70,7 +70,7 @@
                 <h1>Hi, I'm Amin.</h1>
                 <p class="lead text-muted">Hey, my name is Amin Naghavi and I love to make Django website it's the thrill of handling the request that the people want. </p>
                 <p>
-                    <img src="{% static 'picture.jpg' %}" height="200"/>
+                    <img class="image-orientation: from-image;" src="{% static 'picture.jpg' %}" height="200"/>
                 </p>
                 <p>
                     <a href="mailto: amin.bw95@gmail.com" class="btn btn-primary my-2">Email Me</a>
@@ -82,9 +82,11 @@
             <div class="container">
                 <div class="row">
                     {% for job in jobs.all%}
-                    <div class="col-md-4">
+                    <div class="col-md-4" height=100%>
                         <div class="card mb-4 shadow-sm">
-                            <img class="card-img-top" src={{job.image.url}}/>
+                            <a href="{{job.image.url}}">
+                                <img class="card-img-top" src={{job.image.url}}/>
+                            </a>
                             <div class="card-body">
                                 <p class="card-text">{{job.summary}}</p>
                             </div>
