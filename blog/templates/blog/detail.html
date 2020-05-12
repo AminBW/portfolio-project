@@ -66,12 +66,10 @@
                 <section class="pt-3 jumbotron text-center">
                 <h1 class="text-center">{{blog.title}}</h1>
                 <p class="text-center">{{blog.pub_date}}</p>
-                <div style="height:400px;" >
-                <img class="center" src="{{blog.image.url}}" style="max-height:100%; max-width: 100%;" />
-                </div>
-                <br/>
-                <br/>
-                <p class="text-center">{{blog.body}}</p>
+                <img class="center" src="{{blog.image.url}}" style=" max-height:400px; max-width: 100%;" />
+                <div>
+                <p style="text-align: left;">{{blog.body}}</p>
+            </div>
             </section>
     </main>
 
